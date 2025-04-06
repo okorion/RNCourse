@@ -1,7 +1,19 @@
+import { useState } from "react";
 import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
+  const [enteredGoalText, setEnteredGoalText] = useState("");
+
+  function goalInputHandler(enteredText) {
+    setEnteredGoalText(enteredText);
+  }
+
+  function addGoalHandler() {
+    console.log(enteredGoalText);
+    setEnteredGoalText("");
+  }
+
   return (
     <SafeAreaProvider>
       <SafeAreaView edges={["top", "bottom"]} style={{ flex: 1 }}>
@@ -10,8 +22,9 @@ export default function App() {
             <TextInput
               style={styles.textInput}
               placeholder="Yor course goal!"
+              onChangeText={goalInputHandler}
             />
-            <Button title="Add Goal" />
+            <Button title="Add Goal" onPress={addGoalHandler} />
           </View>
           <View style={styles.goalsContainer}>
             <Text>List of Goals</Text>
