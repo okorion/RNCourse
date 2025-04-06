@@ -4,13 +4,17 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
   const [enteredGoalText, setEnteredGoalText] = useState("");
+  const [courseGoals, setCourseGoals] = useState([]);
 
   function goalInputHandler(enteredText) {
     setEnteredGoalText(enteredText);
   }
 
   function addGoalHandler() {
-    console.log(enteredGoalText);
+    setCourseGoals((currentCourseGoals) => [
+      ...currentCourseGoals,
+      enteredGoalText,
+    ]);
     setEnteredGoalText("");
   }
 
@@ -22,12 +26,15 @@ export default function App() {
             <TextInput
               style={styles.textInput}
               placeholder="Yor course goal!"
+              value={enteredGoalText}
               onChangeText={goalInputHandler}
             />
             <Button title="Add Goal" onPress={addGoalHandler} />
           </View>
           <View style={styles.goalsContainer}>
-            <Text>List of Goals</Text>
+            {courseGoals.map((goal) => (
+              <Text key={goal}>{goal}</Text>
+            ))}
           </View>
         </View>
       </SafeAreaView>
