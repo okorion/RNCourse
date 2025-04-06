@@ -5,7 +5,7 @@ import {
   View,
   Button,
   TextInput,
-  ScrollView,
+  FlatList,
 } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
@@ -20,7 +20,7 @@ export default function App() {
   function addGoalHandler() {
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
-      enteredGoalText,
+      { text: enteredGoalText, id: Math.random().toString() },
     ]);
     setEnteredGoalText("");
   }
@@ -39,13 +39,15 @@ export default function App() {
             <Button title="Add Goal" onPress={addGoalHandler} />
           </View>
           <View style={styles.goalsContainer}>
-            <ScrollView>
-              {courseGoals.map((goal) => (
-                <Text style={styles.goalItem} key={goal}>
-                  {goal}
-                </Text>
-              ))}
-            </ScrollView>
+            <FlatList
+              data={courseGoals}
+              renderItem={(itemData) => {
+                return (
+                  <Text style={styles.goalItem}>{itemData.item.text}</Text>
+                );
+              }}
+              alwaysBounceVertical={false}
+            />
           </View>
         </View>
       </SafeAreaView>
