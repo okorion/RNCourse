@@ -1,24 +1,26 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  TextInput,
-  FlatList,
-} from "react-native";
+import { StyleSheet, View, Button, FlatList } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
 
 export default function App() {
+  const [modalIsVisible, setModalIsVisible] = useState(false);
   const [courseGoals, setCourseGoals] = useState([]);
+
+  function startAddGoalHandler() {
+    setModalIsVisible(true);
+  }
+  function endAddGoalHandler() {
+    setModalIsVisible(false);
+  }
 
   function addGoalHandler(enteredGoalText) {
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
       { text: enteredGoalText, id: Math.random().toString() },
     ]);
+    endAddGoalHandler();
   }
 
   function deleteGoalHandler(id) {
@@ -31,7 +33,18 @@ export default function App() {
     <SafeAreaProvider>
       <SafeAreaView edges={["top", "bottom"]} style={{ flex: 1 }}>
         <View style={styles.appContainer}>
-          <GoalInput onAddGoal={addGoalHandler} />
+          <Button
+            title="Add New Goal"
+            color="#5e0acc"
+            onPress={startAddGoalHandler}
+          />
+          {modalIsVisible && (
+            <GoalInput
+              onAddGoal={addGoalHandler}
+              onCancel={endAddGoalHandler}
+              visible={modalIsVisible}
+            />
+          )}
           <View style={styles.goalsContainer}>
             <FlatList
               data={courseGoals}
