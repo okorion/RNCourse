@@ -1,3 +1,16 @@
+# ====== Common Global Ignore Rules ======
+.vscode/
+.DS_Store
+node_modules/
+*.log
+*.tsbuildinfo
+.env*
+*.pem
+*.p12
+*.jks
+
+
+# From apps\GoaList\.gitignore.template
 # ───── Common IDE / OS 설정 파일 ─────
 .vscode/
 .DS_Store
