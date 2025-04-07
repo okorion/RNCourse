@@ -21,6 +21,12 @@ export default function App() {
     ]);
   }
 
+  function deleteGoalHandler(id) {
+    setCourseGoals((currentCourseGoals) => {
+      return currentCourseGoals.filter((goal) => goal.id !== id);
+    });
+  }
+
   return (
     <SafeAreaProvider>
       <SafeAreaView edges={["top", "bottom"]} style={{ flex: 1 }}>
@@ -30,7 +36,13 @@ export default function App() {
             <FlatList
               data={courseGoals}
               renderItem={(itemData) => {
-                return <GoalItem text={itemData.item.text} />;
+                return (
+                  <GoalItem
+                    text={itemData.item.text}
+                    id={itemData.item.id}
+                    onDeleteItem={deleteGoalHandler}
+                  />
+                );
               }}
               alwaysBounceVertical={false}
             />
