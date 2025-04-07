@@ -1,0 +1,53 @@
+# ───── Common IDE / OS 설정 파일 ─────
+.vscode/
+.DS_Store
+.idea/
+*.swp
+*.swo
+
+# ───── Node.js ─────
+node_modules/
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# ───── TypeScript ─────
+*.tsbuildinfo
+
+# ───── 환경 설정 파일 / 인증 파일 ─────
+.env
+.env*.local
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+*.p8
+*.jks
+*.mobileprovision
+
+# ───── Metro 번들러 ─────
+.metro-health-check*
+
+# ───── 앱 공통 무시 규칙 (apps/*) ─────
+apps/*/node_modules/
+apps/*/.expo/
+apps/*/.vscode/
+apps/*/dist/
+apps/*/web-build/
+apps/*/build/
+apps/*/expo-env.d.ts
+apps/*/.metro-health-check*
+apps/*/*.orig.*
+apps/*/*.tsbuildinfo
+apps/*/*.log
+apps/*/.env*
+apps/*/*.DS_Store
+
+# ───── 패키지 공통 무시 규칙 (packages/*) ─────
+packages/*/node_modules/
+packages/*/dist/
+packages/*/*.tsbuildinfo
+packages/*/*.log
+packages/*/.env*
+packages/*/.DS_Store

@@ -1,7 +1,14 @@
 {
   "private": true,
+  "scripts": {
+    "prepare": "husky install",
+    "generate:gitignore": "node scripts/generate-gitignore.js"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
 }
