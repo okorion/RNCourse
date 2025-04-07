@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname "$0")/h"
-
 echo "🧪 Running generate:gitignore before commit..."
 npm run generate:gitignore || {
   echo "❌ generate:gitignore failed. Commit aborted."
