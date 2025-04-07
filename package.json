@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "prepare": "husky install",
-    "postinstall": "husky install",
+    "prepare": "husky",
+    "postinstall": "husky",
     "generate:gitignore": "node scripts/generate-gitignore.js",
-    "husky:setup": "husky install && chmod +x .husky/pre-commit"
+    "husky:setup": "husky && chmod +x .husky/pre-commit"
   },
   "workspaces": [
     "apps/*",
