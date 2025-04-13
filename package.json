@@ -1,5 +1,6 @@
 {
   "private": true,
+  "main": "App.js",
   "scripts": {
     "prepare": "husky",
     "postinstall": "husky",

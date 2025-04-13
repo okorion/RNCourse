@@ -10,7 +10,7 @@ node_modules/
 *.jks
 
 
-# From apps\GoaList\.gitignore.template
+# From apps\GoalList\.gitignore.template
 # ───── Common IDE / OS 설정 파일 ─────
 .vscode/
 .DS_Store
