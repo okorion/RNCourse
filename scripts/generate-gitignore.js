@@ -40,4 +40,4 @@ for (const filePath of templatePaths) {
 }
 
 fs.writeFileSync(outputPath, merged.join("\n\n"));
-console.log("✅ .gitignore 병합 완료");
+// console.log("✅ .gitignore 병합 완료");

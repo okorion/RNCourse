@@ -6,6 +6,6 @@ npm run generate:gitignore || {
 
 # .gitignore이 변경된 경우 자동으로 add
 if ! git diff --cached --quiet .gitignore || ! git diff --quiet .gitignore; then
-  echo "📄 .gitignore has changed. Adding to staging..."
   git add .gitignore
+  echo "📄 .gitignore 변경사항이 감지되어 자동으로 git add 되었습니다."
 fi
