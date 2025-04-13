@@ -12,6 +12,8 @@
     "@babel/runtime": "^7.27.0",
     "@expo/vector-icons": "^14.1.0",
     "expo": "~52.0.43",
+    "expo-app-loading": "^2.1.1",
+    "expo-font": "^13.0.4",
     "expo-linear-gradient": "~14.0.2",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
