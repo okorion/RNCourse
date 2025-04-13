@@ -3,3 +3,9 @@ npm run generate:gitignore || {
   echo "❌ generate:gitignore failed. Commit aborted."
   exit 1
 }
+
+# .gitignore이 변경된 경우 자동으로 add
+if ! git diff --cached --quiet .gitignore || ! git diff --quiet .gitignore; then
+  echo "📄 .gitignore has changed. Adding to staging..."
+  git add .gitignore
+fi
