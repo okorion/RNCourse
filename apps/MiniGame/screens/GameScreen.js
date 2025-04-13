@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, use } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
 
 import Title from "../components/ui/Title";
@@ -18,9 +18,15 @@ function generateRandomBetween(min, max, exclude) {
 let minBoundary = 1;
 let maxBoundary = 100;
 
-function GameScreen({ userNumber }) {
+function GameScreen({ userNumber, onGameOver }) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+
+  useEffect(() => {
+    if (currentGuess === userNumber) {
+      onGameOver();
+    }
+  }, [currentGuess, userNumber, onGameOver]);
 
   function nextGuessHandler(direction) {
     if (
@@ -51,17 +57,19 @@ function GameScreen({ userNumber }) {
       <Title> Opponent's Guess</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
       <View>
-        <Text> Higher or Lower?</Text>
+        <Text>Higher or Lower?</Text>
         <View>
           <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
-            -
+            <Text>-</Text>
           </PrimaryButton>
           <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
-            +
+            <Text>+</Text>
           </PrimaryButton>
         </View>
       </View>
-      <View>LOG ROUNDS</View>
+      <View>
+        <Text>LOG ROUNDS</Text>
+      </View>
     </View>
   );
 }
