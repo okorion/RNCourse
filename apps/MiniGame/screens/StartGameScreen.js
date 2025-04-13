@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     alignItems: "center",
   },
+
   numberInput: {
     height: 50,
     width: 50,
@@ -79,11 +80,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+
   buttonsContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
   },
+
   buttonContainer: {
     flex: 1,
   },
